@@ -4,8 +4,10 @@ require_relative "wagon_sort"
 #       Remember, to read an input from the command line, use:
 #       - `gets`:  http://www.ruby-doc.org/core-2.1.2/Kernel.html#method-i-gets
 #       - `chomp`: http://www.ruby-doc.org/core-2.1.2/String.html#method-i-chomp
-
-
+puts "What's your name?"
+students = gets.chomp
+wagon_sort >> students
 
 # TODO: Then call `wagon_sort` method defined in the wagon_sort.rb
 #       file and display the sorted student list
+display wagon_sort.sort
