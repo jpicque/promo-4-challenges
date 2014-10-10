@@ -19,6 +19,7 @@ BEVERAGE = {
   "Happy Meal" => ["Cheese Burger", "French fries", "Coca"],
   "Best Of Big Mac" => ["Big Mac", "French fries", "Coca"],
   "Best Of Royal Cheese" => ["Royal Cheese", "Potatoes", "Sprite"]
+}
 
 
 def poor_calories_counter(burger, side, beverage)
