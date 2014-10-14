@@ -1,4 +1,4 @@
-CALORIES = {
+ITEM = {
 "Cheese Burger" => 290,
 "Big Mac" => 300,
 "Mc Bacon" => 400,
@@ -18,14 +18,22 @@ CALORIES = {
 
 def poor_calories_counter(burger, side, beverage)
   #TODO: return number of calories for this mcDonald order
-	return CALORIES[burger] + CALORIES[side] + CALORIES[beverage]
+	return ITEM[burger] + ITEM[side] + ITEM[beverage]
 end
 
 def calories_counter(*orders)
   #TODO: return number of calories for a less constrained order
-	orders.reduce do ||
-  if MENU
-
-  p count
+sum = 0
+  orders.each do |x|
+  	if x == "Happy Meal"
+  		sum =+ poor_calories_counter("Cheese Burger", "French fries", "Coca")
+  	elsif x == "Best Of Big Mac"
+  		sum =+ poor_calories_counter("Big Mac", "French fries", "Coca")
+  	elsif x == "Best Of Royal Cheese"
+  		sum =+ poor_calories_counter("Royal Cheese", "Potatoes", "Sprite")
+  	else
+  		sum =+ poor_calories_counter + extra_poor_calories_counter(x)
+  	end
+  end
+	return sum
 end
-
