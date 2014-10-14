@@ -8,10 +8,10 @@ require 'csv'
 def most_successfull(number, max_year, file_name)
   # TODO: return the number most successfull movies max_year
 array_movies = []
-csv_options = { col_sep: ',', quote_char: '"'}
+csv_options = { col_sep: ','}
 filepath = "/Users/julien/code/jpicque/promo-4-challenges/01-Ruby/06-Parsing/01-CSV-Parsing/lib/movies.csv"
 
-	CSV.foreach(filepath, csv_options) do |row|
+	CSV.foreach(file_name, csv_options) do |row|
 		array_movies << {name: row[0], year: row[1].to_i, earnings: row[2].to_i}
 		array_movies = array_movies.sort {|a, b| b[:earnings] <=> a[:earnings]}
 	end	
