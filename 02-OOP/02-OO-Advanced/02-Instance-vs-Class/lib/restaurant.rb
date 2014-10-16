@@ -5,8 +5,7 @@ class Restaurant
 
   def initialize(city, name)
     # TODO: implement constructor with relevant instance variables
-    @city = city
-    @name = name
+    @city, @name = city, name
     @ratings = []
     @average_rating = 0
   end
@@ -28,5 +27,3 @@ class Restaurant
     return restos
   end
 end
-
-p Restaurant.new("Lyon", "bocuse")
