@@ -1,7 +1,6 @@
 class Restaurant
   # TODO: add relevant accessors if necessary
-  attr_reader :name, :city
-  attr_accessor :ratings, :average_rating
+  attr_reader :name, :city, :ratings, :average_rating
 
   def initialize(city, name)
     # TODO: implement constructor with relevant instance variables
