@@ -1,5 +1,9 @@
 require 'gosu'
 
+module ZOrder
+  Background, Stars, Player, UI = *0..3
+end
+
 class GameWindow < Gosu::Window
 
   def initialize
@@ -8,6 +12,8 @@ class GameWindow < Gosu::Window
     @background_image = Gosu::Image.new(self, "/Users/julien/code/jpicque/promo-4-challenges/02-OOP/02-OO-Advanced/Optional-02-Gosu-Game/lib/media/Space.png", true)
     @player = Player.new(self)
     @player.warp(320, 240)
+    @star_anim = Gosu::Image::load_tiles(self, "/Users/julien/code/jpicque/promo-4-challenges/02-OOP/02-OO-Advanced/Optional-02-Gosu-Game/lib/media/duff.png", 25, 25, false)
+    @stars = Array.new
   end
 
   def update
@@ -21,11 +27,16 @@ class GameWindow < Gosu::Window
       @player.accelerate
     end
     @player.move
+    @player.collect_stars(@stars)
+    if rand(100) < 4 and @stars.size < 25 then
+      @stars.push(Star.new(@star_anim))
+    end
   end
 
   def draw
     @player.draw
     @background_image.draw(0, 0, 0);
+    @stars.each { |star| star.draw }
   end
 
   def button_down(id)
@@ -72,6 +83,32 @@ class Player
 
   def draw
     @image.draw_rot(@x, @y, 1, @angle)
+  end
+
+  def collect_stars(stars)
+    stars.reject! do |star|
+      Gosu::distance(@x, @y, star.x, star.y) < 35
+    end
+  end
+
+end
+
+class Star
+  attr_reader :x, :y
+
+  def initialize(animation)
+    @animation = animation
+    @color = Gosu::Color.new(0xff000000)
+    @color.red = rand(255 - 40) + 40
+    @color.green = rand(255 - 40) + 40
+    @color.blue = rand(255 - 40) + 40
+    @x = rand * 640
+    @y = rand * 480
+  end
+
+  def draw
+    img = @animation[Gosu::milliseconds / 100 % @animation.size]
+    img.draw(@x - img.width / 2.0, @y - img.height / 2.0, ZOrder::Stars, 1, 1, @color, :additive)
   end
 
 end
