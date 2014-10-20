@@ -22,12 +22,13 @@ class Cookbook
       @recipes.each { |recipe| csv << [recipe.name, recipe.description] }
     end
   end
-def remove_recipe(index)
-   @recipes.delete_at(index)
-   CSV.open(@csv_file, 'w') do |csv|
-     @recipes.each do |recipe|
-       csv << [recipe.name, recipe.description]
-     end
-   end
-end
+
+  def remove_recipe(index)
+    @recipes.delete_at(index)
+    CSV.open(@csv_file, 'w') do |csv|
+      @recipes.each do |recipe|
+        csv << [recipe.name, recipe.description]
+      end
+    end
+  end
 end
