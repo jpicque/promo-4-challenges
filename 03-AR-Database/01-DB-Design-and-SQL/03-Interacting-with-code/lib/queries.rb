@@ -17,6 +17,6 @@ end
 
 def long_tracks(db, min_length)
   # TODO: return tracks verifying: duration > min_length (minutes)
-  min_length = min_length * 60000
+  min_length = min_length * 60_000
   db.execute("SELECT name FROM tracks WHERE milliseconds > #{min_length}").flatten
 end
