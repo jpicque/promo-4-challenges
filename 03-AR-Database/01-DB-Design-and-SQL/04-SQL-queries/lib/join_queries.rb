@@ -26,9 +26,4 @@ end
 
 def top_five_artists(db, genre_name)
   # TODO: return list of top 5 rock artists
-  query = db.execute("SELECT ar.name COUNT ar.name
-    FROM tracks t
-    JOIN genres g ON
-    JOIN
-    JOIN")
 end
