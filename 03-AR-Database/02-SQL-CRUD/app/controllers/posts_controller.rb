@@ -1,3 +1,5 @@
+require_relative 'posts'
+
 class PostsController
   def initialize
     @view = PostView.new
@@ -9,6 +11,7 @@ class PostsController
 
   def index
     # TODO: implement listing all posts
+    list_post = Post.all
   end
 
   def create
