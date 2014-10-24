@@ -11,7 +11,6 @@ class PostsController
 
   def index
     # TODO: implement listing all posts
-    list_post = Post.all
   end
 
   def create
