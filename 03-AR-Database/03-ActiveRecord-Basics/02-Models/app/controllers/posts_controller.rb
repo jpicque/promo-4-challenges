@@ -1,8 +1,10 @@
 require_relative "../views/post_view.rb"
+require_relative "../models/post.rb"
 
 class PostsController
   def initialize
     @view = PostView.new
+    votes = 0
   end
 
   def index
@@ -15,15 +17,10 @@ class PostsController
   def create
     # DO NOT WRITE SQL QUERIES
     # TODO: create a post
-    post_title = @view.ask_for_title
-    post_url = @view.ask_for_url
-    post = Post.new({
-      title: post.title,
-      url: post.url,
-      votes: 0
-      })
+    title = @view.ask_for_title
+    url = @view.ask_for_url
+    post = Post.new(title: title, url: url, votes: votes)
     post.save
-    @view.print_successfully_created
   end
 
   def update(id)
@@ -38,7 +35,7 @@ class PostsController
     @view.print_successfully_updated(post)
   end
 
-  def destroy(id)
+  def destroy
     # DO NOT WRITE SQL QUERIES
     # TODO: destroy a post
     index

@@ -20,15 +20,15 @@ class PostView
     gets.chomp
   end
 
-def index(posts)
-  posts.each do |post| puts "#{post}"
-   i = post.id
-   n = post.name
-   u = post.url
-   v = post.votes
-  puts "Post ID: #{i} - Title: #{n} - URL: #{u} - Votes: #{v}"
+  def index(posts)
+    posts.each do |post| puts "#{post}"
+      i = post.id
+      n = post.name
+      u = post.url
+      v = post.votes
+      puts "Post ID: #{i} - Title: #{n} - URL: #{u} - Votes: #{v}"
+    end
   end
-end
 
   def ask_for_id
     loop do
