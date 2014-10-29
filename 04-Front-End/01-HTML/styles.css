@@ -1,0 +1,39 @@
+header {
+  background-color: black;
+  text-align: center;
+}
+
+p {
+  font-family: ‘Open Sans’, Arial, serif;
+  font-weight: 400;
+  color: white;
+  text-align: justify;
+}
+
+#sous_titre {
+  text-align: center;
+}
+
+.article {
+  border: 2px solid white;
+}
+
+h1 {
+  color: white;
+}
+
+body {
+  background-color: grey;
+}
+
+aside {
+  display: inline-block;
+  font-size: 30px;
+}
+
+h2 {
+  border: 2px;
+  box-shadow: 10px;
+  text-align: center;
+}
+
