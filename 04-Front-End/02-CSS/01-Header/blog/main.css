@@ -4,6 +4,7 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
+<<<<<<< HEAD
 header {
 border-bottom: 1px dotted grey;
 padding: 10px;
@@ -31,3 +32,15 @@ h1 {
   text-align: center;
 }
 
+=======
+
+header h1{
+  text-align: center;
+}
+
+
+
+li{
+  display: inline;
+}
+>>>>>>> 2ea55e6b925e9c84fca45339c0ac619bed284d1a
